@@ -7,3 +7,8 @@ To see this code in action, visit [html5slides.pageforest.com].
 
   [HTML5 Slides]: http://code.google.com/p/html5slides/
   [html5slides.pageforest.com]: http://html5slides.pageforest.com
+
+
+M.Ishikawa
+Forked.
+
