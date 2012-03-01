@@ -22,8 +22,6 @@ NETWORK:
 # TOTAL FILES: 16 (598,197 bytes)
 # SIGNATURE: d6e65663ca7bc27b2832804f50171ada1d8fe7a7
 CACHE:
-README
-README.md
 images/colorbar.png
 images/example-cat.jpg
 images/example-graph.png

@@ -609,8 +609,22 @@ function onReady() {
     client = new clientLib.Client(exports);
     client.saveInterval = 0;
 
-    client.addAppBar();
+    
+//    client.addAppBar();
 
+    $(doc.save).click(function saveEdit(evt) {
+//    	console.log(doc.editor.value);
+    	$.ajax({
+    		  type: 'POST',
+    		  url: '/save',
+    		  data: {text: doc.editor.value},
+    		  success: function(){},
+//    		  error: function(){},
+    		  dataType: "text",
+    		});
+    });
+
+    
     $(doc.edit).click(toggleEditor);
     $(doc.insert).click(insertStockCode);
     $(doc.editor).keydown(tabToSpace);
