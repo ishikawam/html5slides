@@ -10,5 +10,7 @@ To see this code in action, visit [html5slides.pageforest.com].
 
 
 M.Ishikawa
-Forked.
+Forked for LT (2012-03-02 CA Mobile)
+
+git://github.com/ishikawam/html5slides.git
 

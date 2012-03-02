@@ -5,6 +5,9 @@ var app = express.createServer();
 
 app.register('.ejs', ejs);
 
+// use POST
+app.use(express.bodyParser());
+
 app.get('/', function(req, res) {
 	var read = fs.createReadStream(__dirname + '/public/slides.html');
 	read.on('data', function(data) {
@@ -16,10 +19,17 @@ app.get('/', function(req, res) {
 	});
 });
 
+
 app.post('/save', function(req, res) {
-	var write = fs.createWriteStream(__dirname + '/public/tmp.html');
-	console.log(req);
-//	req.text.pipe(write);
+	var writableStream = fs.createWriteStream(__dirname + '/public/slides.html');
+    writableStream.on('close', function(){
+    	res.send();
+    });
+    writableStream.on('error', function(){
+    	res.send('error');
+    });
+    writableStream.write(req.body.text, 'utf8');
+    writableStream.end();
 });
 
 // Configuration

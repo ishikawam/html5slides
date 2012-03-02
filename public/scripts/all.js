@@ -613,14 +613,13 @@ function onReady() {
 //    client.addAppBar();
 
     $(doc.save).click(function saveEdit(evt) {
-//    	console.log(doc.editor.value);
     	$.ajax({
     		  type: 'POST',
     		  url: '/save',
     		  data: {text: doc.editor.value},
+    		  dataType: "text",
     		  success: function(){},
 //    		  error: function(){},
-    		  dataType: "text",
     		});
     });
 
@@ -802,8 +801,14 @@ function updateMeta(json) {
 function onSaveSuccess(json) {
     updateMeta(client.meta);
     // save a flat html version
-    var flat = "<!DOCTYPE html>\n<!--\nGoogle HTML5 slide template  Authors: Luke Mahe (code)\nMarcin Wichary (code and design)\nDominic Mazzoni (browser compatibility)\nCharles Chen (ChromeVox support)\nURL: http://code.google.com/p/html5slides/\n-->\n<html>\n  <head>\n  <title>Presentation</title>\n    <meta charset='utf-8'>\n    <script src='http://html5slides.googlecode.com/svn/trunk/slides.js'></script>\n</head><body style='display: none'>    <section class='slides'>" + renderedText +
-        "</section></body></html>";
+//    var flat = "<!DOCTYPE html>\n<!--\nGoogle HTML5 slide template  Authors: Luke Mahe (code)\nMarcin Wichary (code and design)\nDominic Mazzoni (browser compatibility)\nCharles Chen (ChromeVox support)\nURL: http://code.google.com/p/html5slides/\n-->\n<html>\n  <head>\n  <title>Presentation</title>\n    <meta charset='utf-8'>\n    <script src='http://html5slides.googlecode.com/svn/trunk/slides.js'></script>\n</head><body style='display: none'>    <section class='slides'>" + renderedText +
+//        "</section></body></html>";
+    var flat = "<!DOCTYPE html>\n" +
+    		"<!--\nGoogle HTML5 slide template  Authors: Luke Mahe (code)\nMarcin Wichary (code and design)\nDominic Mazzoni (browser compatibility)\nCharles Chen (ChromeVox support)\nURL: http://code.google.com/p/html5slides/\n-->\n" +
+    		"<html>\n  <head>\n  <title>Presentation</title>\n    <meta charset='utf-8'>\n" +
+    		"    <script src='http://html5slides.googlecode.com/svn/trunk/slides.js'></script>\n" +
+    		"</head><body style='display: none'>    <section class='slides'>" + renderedText +
+    		"</section></body></html>";
     client.storage.putBlob(client.docid, 'slides', flat);
 }
 

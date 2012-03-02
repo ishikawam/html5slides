@@ -17,10 +17,6 @@ html {
 }
 
 body {
-  -webkit-font-smoothing: antialiased;
-}
-
-body.index {
   margin: 0;
   padding: 0;
 
@@ -37,6 +33,8 @@ body.index {
   background: -moz-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
   background: -webkit-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
   background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 500, from(rgb(240, 240, 240)), to(rgb(190, 190, 190)));
+
+  -webkit-font-smoothing: antialiased;
 }
 
 .slides {
@@ -99,14 +97,14 @@ body.index {
 }
 
 .slides.template-default > article:not(.nobackground):not(.biglogo) {
-  background: url(../images/google-logo-small.png) 710px 625px no-repeat;  
+  background: url(images/google-logo-small.png) 710px 625px no-repeat;  
   
   background-color: white;  
 } 
 
 .slides.template-io2011 > article:not(.nobackground):not(.biglogo) {
-  background: url(../images/colorbar.png) 0 600px repeat-x,
-              url(../images/googleio-logo.png) 640px 625px no-repeat;
+  background: url(images/colorbar.png) 0 600px repeat-x,
+              url(images/googleio-logo.png) 640px 625px no-repeat;
 
   background-size: 100%, 225px;  
 
@@ -157,11 +155,11 @@ body.index {
 /* Slide styles */
 
 .slides.template-default article.biglogo {
-  background: white url(../images/google-logo.png) 50% 50% no-repeat;
+  background: white url(images/google-logo.png) 50% 50% no-repeat;
 }
 
 .slides.template-io2011 article.biglogo {
-  background: white url(../images/googleio-logo.png) 50% 50% no-repeat;
+  background: white url(images/googleio-logo.png) 50% 50% no-repeat;
 
   background-size: 600px;
 }
@@ -305,7 +303,7 @@ p:first-child {
   margin-top: 0;
 }
 
-h1:not(#page-heading) {
+h1 {
   font-size: 60px;
   line-height: 60px;
 
@@ -612,4 +610,15 @@ article.smaller q::after {
 .prettyprint .var { /* a declaration; a variable name */
   color: rgb(127, 0, 127);
 }  
+
+
+/* M.Ishikawa */
+.slides.template-ishikawa > article:not(.nobackground):not(.biglogo) {
+  background: url(http://localhost:3000/images/ishikawa_logo_small.png) 690px 640px no-repeat;  
+  
+  background-color: white;  
+} 
+.slides.template-ishikawa article.biglogo {
+  background: white url(http://localhost:3000/images/ishikawa_logo.png) 50% 50% no-repeat;
+}
 
