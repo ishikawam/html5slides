@@ -632,3 +632,26 @@ if (!window['_DEBUG'] && document.location.href.indexOf('?debug') !== -1) {
 } else {
   initialize();
 }
+
+
+/* socket.io */
+
+//Interaction with server using Socket.IO
+var socket = io.connect(location.protocol + '//' + location.host + '/control');
+socket.on('connect', function(commands) {
+});
+// recieve message
+socket.on('message', function(msg) {
+	console.log(msg);
+	if (msg == 2) {
+	    nextSlide();
+	    event.preventDefault();
+	}
+	if (msg == 1) {
+	    prevSlide();
+	    event.preventDefault();
+	}
+});
+
+
+

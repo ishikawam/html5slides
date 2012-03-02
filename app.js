@@ -2,6 +2,7 @@ var express = require('express');
 var ejs = require('ejs');
 var fs = require('fs');
 var app = express.createServer();
+var io = require('socket.io').listen(app);
 
 app.register('.ejs', ejs);
 
@@ -16,6 +17,22 @@ app.get('/', function(req, res) {
 				slides : data,
 			}
 		});
+	});
+});
+
+
+const commands = 1;
+io.of('/control').on('connection', function(socket) {
+	socket.emit('init', commands);
+	socket.on('message', function(msg) {
+		console.log(msg);
+		msg.sessionId = socket.id;
+		commands = msg;
+		socket.send(msg);
+		socket.broadcast.emit('message', msg);
+	});
+	socket.on('disconnect', function() {
+		socket.broadcast.emit('leave', socket.id);
 	});
 });
 

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+  <head>
+    <title>Control Panel</title>
+    <meta charset='utf-8'>
+	<meta name="viewport" content="width=120px,user-scalable=no" />
+	<script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+    <script src='/panel.js'></script>
+    <style>
+    	body {
+    		margin: 0px;
+			padding: 0px;
+    	}
+    
+    </style>
+  </head>
+  <body>
+  	<input type="button" id="prev" name="prev" value=" prev " onclick="SendMsg(1)" />
+  	<input type="button" id="next" name="next" value=" next " onclick="SendMsg(2)" />
+	
+	<div id="loadingMessage">Loading. Please wait...</div>
+	<div id="receiveMsg"></div>
+	
+  </body>
+</html>
